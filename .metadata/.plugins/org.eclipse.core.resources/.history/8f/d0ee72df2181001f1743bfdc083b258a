@@ -1,0 +1,20 @@
+package testes;
+
+import org.junit.jupiter.api.Test;
+
+import pages.HomePage;
+
+public class DesafioPageTeste {
+
+	HomePage page = new HomePage();
+	
+	public void preencherDadosCorretos() {
+		
+	}
+	
+	@Test
+	public void selecionarEstado() {
+		page.selecionarEstado("r");
+	}
+	
+}

@@ -1,0 +1,40 @@
+package pages;
+
+import org.openqa.selenium.By;
+
+import metodos.Metodos;
+import utils.MassaDeDados;
+
+public class HomePage {
+
+	Metodos mt = new Metodos();
+	MassaDeDados massa = new MassaDeDados();
+	
+	By nome = By.xpath("//*[@id='text']");
+	By email = By.xpath("//*[@type='email']");
+	By telefone = By.xpath("//*[text()='Endereço: ']");
+	By endereco = By.xpath("");
+	By cidade = By.xpath("");
+	
+	By selecionar = By.xpath("");
+
+	public void preencherFormulario(String telefone, String endereco, String cidade, String filePath) {
+		mt.escrever(this.nome, massa.gerarPrimeiroNome());
+		mt.escrever(this.email, massa.gerarEmail());
+		mt.escrever(this.telefone, telefone);
+		mt.escrever(this.endereco, endereco);
+		mt.escrever(this.cidade, cidade);
+		mt.uploadArquivo(upload, filePath);
+		mt.clicar(btnEnviar);
+	}
+
+	public void selecionarEstado (String estado) {
+		mt.clicar(selecionar);
+		mt.escrever(selecionar, estado);
+	}
+	
+	
+	public void validarAlertDe5Segundos() {
+		mt.validarAlert("Pop-up aberto após 5 segundos!");
+	}
+}

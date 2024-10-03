@@ -1,0 +1,66 @@
+package pages;
+
+import org.openqa.selenium.By;
+
+import metodos.Metodos;
+import utils.MassaDeDados;
+
+public class HomePage {
+
+	Metodos mt = new Metodos();
+	MassaDeDados massa = new MassaDeDados();
+	
+	By selecionar = By.xpath("//select");
+	
+	By checkSim = By.xpath("//*[@value='sim']");
+	By checkNao = By.xpath("//*[@value='nao']");
+	
+	By mouseOver= By.xpath("//*[@class='hover-alert']");
+	
+	By nome = By.xpath("//form//label[1]/input");
+	By email = By.xpath("//form//label[2]/input");
+	By telefone = By.xpath("//form//label[3]/input");
+	By endereco = By.xpath("//form//label[4]/input");
+	By cidade = By.xpath("//form//label[5]/input");
+	By upload = By.xpath("//input[@type='file']");
+	By btnEnviar =  By.xpath("//*[@type='submit']");
+	
+
+	
+	
+	
+	public void selecionarEstado (String estado) {
+		mt.escrever(selecionar, estado);
+	}
+	
+	public void opcaoTermos(String checkbox) {
+		
+		if (checkbox.equalsIgnoreCase("sim")) {
+			mt.clicar(checkSim);
+		} else if(checkbox.equalsIgnoreCase("nao")) {
+			mt.clicar(checkNao);
+		}
+	}
+	
+	public void passarMouse() {
+		mt.mouseOver(btnEnviar);
+	}
+	
+	
+	public void preencherFormulario(String filePath) {
+		mt.escrever(this.nome, massa.gerarPrimeiroNome());
+		mt.escrever(this.email, massa.gerarEmail());
+		mt.escrever(this.telefone, "(11) 91234-4321");
+		mt.escrever(this.endereco, massa.gerarEndereco());
+		mt.escrever(this.cidade, massa.gerarCidade());
+		mt.uploadArquivo(upload, filePath);
+		mt.clicar(btnEnviar);
+	}
+
+
+	
+	
+	public void validarAlertDe5Segundos() {
+		mt.validarAlert("Pop-up aberto após 5 segundos!");
+	}
+}

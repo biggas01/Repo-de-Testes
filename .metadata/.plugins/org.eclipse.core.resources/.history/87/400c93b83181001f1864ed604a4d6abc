@@ -1,0 +1,24 @@
+package testes;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import navegadores.Executa;
+import pages.HomePage;
+
+public class DesafioPageTeste {
+
+	HomePage page = new HomePage();
+	
+	@BeforeEach
+	public void iniciarTeste() {
+		Executa.abrirNavegador();
+	}
+	
+	@Test
+	public void preencherDadosCorretos() {
+
+	}
+
+	
+}

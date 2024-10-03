@@ -1,0 +1,10 @@
+package pages;
+
+public class HomePage {
+
+	public void formulario (String nome, String email String telefone, String endereco) {
+		
+	}
+	
+	
+}

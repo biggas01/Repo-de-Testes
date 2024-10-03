@@ -1,0 +1,57 @@
+package utils;
+
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
+import com.github.javafaker.Faker;
+
+public class MassaDeDados {
+
+	Faker faker = new Faker();
+	
+	
+	public String gerarPrimeiroNome() {
+		
+		return faker.name().firstName();
+	}
+
+	public String gerarUltimoNome() {
+		
+		return faker.name().lastName();
+	}
+	
+	public String gerarNomeCompleto() {
+		return faker.name().fullName();
+	}
+	
+	public String gerarEmail() {
+		return faker.internet().emailAddress() ;
+	}
+	
+	public String gerarEndereco() {
+		return faker.address().streetAddress();
+	}
+	
+	public String gerarDataNascimento() {
+		Date dataNascimento = faker.date().birthday(18, 86);
+		
+		//converter para localdate
+		LocalDate localDate = dataNascimento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		
+		//Formatar a data no padrao "ddMMyyyy"
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
+		
+		return localDate.format(formatter);
+		
+	}
+	
+	public String gerarRg() {
+		
+		return faker.number().digits(10);
+	}
+	
+	
+}
+

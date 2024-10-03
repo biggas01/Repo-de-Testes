@@ -1,0 +1,11 @@
+package testes;
+
+import pages.HomePage;
+
+public class DesafioPageTeste {
+
+	HomePage page = new HomePage();
+	
+	
+	
+}

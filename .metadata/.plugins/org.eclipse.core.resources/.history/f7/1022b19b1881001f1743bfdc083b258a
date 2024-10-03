@@ -1,0 +1,23 @@
+package testes;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import metodos.Metodos;
+
+public class DesafioUiTeste {
+
+	WebDriver driver = new ChromeDriver();
+	Metodos mt = new Metodos();
+	
+	@Test
+	public void AcessarOSite() {
+		driver.get("https://desafio.ui.e2etreinamentos.com.br/");
+		assertEquals("https://desafio.ui.e2etreinamentos.com.br/", driver.getCurrentUrl());
+		
+	}
+	
+}

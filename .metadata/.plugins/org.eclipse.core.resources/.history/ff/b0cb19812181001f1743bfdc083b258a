@@ -1,0 +1,33 @@
+package pages;
+
+import org.openqa.selenium.By;
+
+import metodos.Metodos;
+
+public class HomePage {
+
+	Metodos mt = new Metodos();
+	By nome = By.xpath("");
+	By email = By.xpath("");
+	By telefone = By.xpath("");
+	By endereco = By.xpath("");
+	By cidade = By.xpath("");
+	
+	By selecionar = By.xpath("");
+
+	public void preencherFormulario(String nome, String email, String telefone, String endereco, String cidade) {
+		mt.escrever(this.nome, nome);
+		mt.escrever(this.email, email);
+		mt.escrever(this.telefone, telefone);
+		mt.escrever(this.endereco, endereco);
+		mt.escrever(this.cidade, cidade);
+	}
+
+	public void selecionarEstado (String estado) {
+		mt.clicar(selecionar);
+		mt.escrever(selecionar, estado);
+	}
+	
+	
+	
+}
